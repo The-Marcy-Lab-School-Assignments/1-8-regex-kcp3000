@@ -1,34 +1,68 @@
-const helloWorldRegex = (str) => {};
+const helloWorldRegex = (strHelloWorld) => /hello\s+world/i.test(strHelloWorld)
 
-const hasAVowel = (str) => {};
+const hasAVowel = (vowel) => {
+  const hasVowel = /[aeiou]/gi
+  return hasVowel.test(vowel)
+}
 
-const hasCatsOrDogs = (str) => {};
+const hasCatsOrDogs = (catDog) => {
+  const catOrDog = /(cats)|(dogs)/gi
+  return catOrDog.test(catDog)
+};
 
-const hasVowelStart = (str) => {};
+const hasVowelStart = (startWithVowels) => {
+  const startingVowels = /^a|^e|^i|^o|^u/gi
+  return startingVowels.test(startWithVowels)
+};;
 
-const hasPunctuationEnd = (str) => {};
+const hasPunctuationEnd = (peridoOrNotToPeriod) => {
+  const punctuation = /\W$/g
+  return punctuation.test(peridoOrNotToPeriod)
+};
 
-const hasNothingOrDigits = (str) => {};
+const hasNothingOrDigits = (strDigits) => {
+  const digits = /^\d+$|^$/g
+  return digits.test(strDigits)
+};
 
-const hasNoFlippers = (str) => {};
 
-const isValidEmail = (str) => {};
+const hasNoFlippers = (strFlip) => {
+  const filp = /^[^BCcDEHIKOoXxl]*$/
+  return filp.test(strFlip)
+};
 
-const isValidPhoneNumber = (str) => {};
+const isValidEmail = (strEmail) => {
+  const isEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+  return isEmail.test(strEmail)
+};
 
-const matchAllNumbers = (str) => {};
+const isValidPhoneNumber = (strNum) => /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/.test(strNum)
 
-const matchAllNumbersAsNumbers = (str) => {};
+const matchAllNumbers = (strMatch) => {
+  // let emptyArr = [];
+  // if (typeof strMatch === null) return emptyArr <-- tried doing a guard clause, did not work :(
+  const matchNum = /\d\d|\d/g
+  let matching = strMatch.match(matchNum) || [] //<--- def was unaware that you could just use operators like this
+  return matching
 
-const matchAllWords = (str) => {};
+};
 
-const replaceAllNumbers = (str) => {};
+const matchAllNumbersAsNumbers = (matchNumStr) => {
+  const matchNum = /\d\d|\d/g
+  let matching = matchNumStr.match(matchNum) || []
+  let numberArray = matching.map(Number)
+  return numberArray
+};
 
-const fixFileName = (str) => {};
+const matchAllWords = (str) => { };
 
-const nameRedacter = (str) => {};
+const replaceAllNumbers = (str) => { };
 
-const camelToSnakeCase = (str) => {};
+const fixFileName = (str) => { };
+
+const nameRedacter = (str) => { };
+
+const camelToSnakeCase = (str) => { };
 
 module.exports = {
   helloWorldRegex,
