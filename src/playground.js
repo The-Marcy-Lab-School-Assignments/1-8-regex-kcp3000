@@ -108,7 +108,30 @@ const matchAllNumbersAsNumbers = (matchNumStr) => {
 //console.log(matchAllNumbersAsNumbers('sfrgd 1 2 hi 40 3'))
 
 const matchAllWords = (strWordMatch) => {
-    let wordMatch = /\D*/g
+    let wordMatch = /[a-z']+/gi
+    return strWordMatch.match(wordMatch) || []
+};
+//console.log(matchAllWords("wow_this_screen_name_is_long"))
 
+const replaceAllNumbers = (strReplace) => {
+    let replace = /[^a-z\s"]+/gi
+    return strReplace.replace(replace, '???') || []
 };
 
+//console.log(replaceAllNumbers("My favorite number is 12."))
+
+const fixFileName = (strFile) => {
+    const file = /\s+/g ///\s\s+/g please work
+    // let spaceBegone = /\\s+/g
+    //let please = strFile.replace(/\\s+/g, "")
+    return strFile.replace(file, '_')
+    //return noSpace.replace(file, '_')
+    //return please
+};
+
+//console.log(fixFileName(' '))
+
+const nameRedacter = (strRedact) => {
+    const redact = /\b[A-Z]+\b/
+    return strRedact.replace(redact, 'REDACTED')
+}

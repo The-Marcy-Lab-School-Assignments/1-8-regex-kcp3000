@@ -54,15 +54,33 @@ const matchAllNumbersAsNumbers = (matchNumStr) => {
   return numberArray
 };
 
-const matchAllWords = (str) => { };
+const matchAllWords = (strWordMatch) => {
+  let wordMatch = /[a-z']+/gi
+  return strWordMatch.match(wordMatch) || []
+};
 
-const replaceAllNumbers = (str) => { };
+const replaceAllNumbers = (strReplace) => {
+  let replace = /[^a-z\s".,]+/gi
+  return strReplace.replace(replace, '???')
+};
 
-const fixFileName = (str) => { };
+const fixFileName = (strFile) => {
+  let file = /\s+/g ///\s\s+/g please work
+  return strFile.replace(file, '_')
+};
 
-const nameRedacter = (str) => { };
+const nameRedacter = (strRedact) => {
+  const redact = /\b[A-Z]{2,}\b/g //man the website i was using was still hitting "ZO" but whatever
+  return strRedact.replace(redact, 'REDACTED')
+}
 
-const camelToSnakeCase = (str) => { };
+const camelToSnakeCase = (strCamel) => {
+  const upperCase = /[A-Z]/g
+  function upperToSnake(match, offset, string) {
+    return (offset > 0 ? '_' : "") + match.toLowerCase()
+  }
+  return strCamel.replace(upperCase, upperToSnake)
+};
 
 module.exports = {
   helloWorldRegex,
