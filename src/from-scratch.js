@@ -1,3 +1,4 @@
+/** FEEDBACK: Great job passing all test cases! */
 const helloWorldRegex = (strHelloWorld) => /hello\s+world/i.test(strHelloWorld)
 
 const hasAVowel = (vowel) => {
